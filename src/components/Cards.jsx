@@ -1,8 +1,11 @@
 import React from "react";
 import { NavItem } from "react-bootstrap";
 import dats from "../backend/data";
+// import { useCart } from "react-use-cart";
+import { CartProvider, useCart } from "react-use-cart";
 
 const Card = (props) => {
+  const { addItem, cartId } = useCart();
   return (
     <>
       {/* card */}
@@ -16,10 +19,14 @@ const Card = (props) => {
             </div>
             <div className="row">
               <p className="cart-text">{props.desc}</p>
+              {props.id}
             </div>
             <div className=" d-grid justify-content-end mt-4">
               {" "}
-              <button className="btn btn-sm btn-outline-success">
+              <button
+                className="btn btn-sm btn-outline-success"
+                onClick={() => addItem(props.item)}
+              >
                 {" "}
                 Add to cart{" "}
               </button>

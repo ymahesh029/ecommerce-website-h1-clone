@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import Card from "../components/Cards";
 import data from "../backend/data";
+import Cart from "../components/Cart";
+
 const Home = () => {
   return (
     <div className="container-fluid py-20px">
@@ -11,6 +13,8 @@ const Home = () => {
           {data.products.map((item, index) => {
             return (
               <Card
+                id={item.id}
+                item={item}
                 img={item.img}
                 title={item.title}
                 desc={item.desc}
@@ -21,6 +25,7 @@ const Home = () => {
           })}
         </div>
       </div>
+      <Cart />
     </div>
   );
 };
